@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Visual Prompt Playbook</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0D0D0D;
+  --card:#1C1C1C;
+  --card-header:#242424;
+  --border:#2E2E2E;
+  --gold:#C9A84C;
+  --text:#F0EDE6;
+  --muted:#A89F8C;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans', sans-serif;
+  line-height:1.75;
+}
+
+.wrapper{
+  max-width:800px;
+  margin:0 auto;
+  padding:100px 24px;
+}
+
+h1,h2,h3{
+  font-family:'Playfair Display', serif;
+  font-weight:700;
+  margin:0 0 24px 0;
+}
+
+h1{font-size:52px; line-height:1.1;}
+h2{font-size:34px; margin-top:100px;}
+h3{font-size:22px;}
+
+p{color:var(--muted); margin-bottom:24px;}
+
+hr{
+  border:none;
+  border-top:1px solid var(--border);
+  margin:80px 0;
+}
+
+.eyebrow{
+  font-family:'JetBrains Mono', monospace;
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:16px;
+}
+
+.meta{
+  font-family:'JetBrains Mono', monospace;
+  font-size:13px;
+  color:var(--muted);
+  margin-top:24px;
+}
+
+.badge{
+  display:inline-block;
+  font-family:'JetBrains Mono', monospace;
+  font-size:11px;
+  padding:4px 10px;
+  border:1px solid rgba(201,168,76,.4);
+  background:rgba(201,168,76,.07);
+  border-radius:20px;
+  margin:4px 6px 4px 0;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:4px;
+  margin:36px 0;
+  overflow:hidden;
+}
+
+.card-header{
+  background:var(--card-header);
+  padding:16px 20px;
+  border-bottom:1px solid var(--border);
+}
+
+.card-body{
+  padding:24px;
+}
+
+.code{
+  font-family:'JetBrains Mono', monospace;
+  font-size:13px;
+  background:#141414;
+  border:1px solid var(--border);
+  padding:18px;
+  border-radius:4px;
+  white-space:pre-wrap;
+  line-height:1.6;
+}
+
+.tip{
+  border-left:3px solid var(--gold);
+  background:rgba(201,168,76,.05);
+  padding:22px;
+  margin:40px 0;
+  color:var(--text);
+}
+
+ul{
+  padding-left:20px;
+  color:var(--muted);
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<div class="eyebrow">AI Visual Playbook</div>
+<h1><em>AI VISUAL</em><br>PROMPT PLAYBOOK</h1>
+
+<p>Prompt profesional untuk graphic design, product content, model campaign, branding, dan AI video.</p>
+
+<div class="meta">
+Compiled for: Johanes Suaktiwa<br>
+Updated: 21 Mei 2026
+</div>
+
+<hr>
+
+<!-- ===================== CARA PAKAI ===================== -->
+
+<div class="eyebrow">Intro</div>
+<h2>Cara Pakai Ebook Ini</h2>
+
+<p>Ebook ini adalah playbook praktis. Hampir semua prompt ditulis dalam bahasa Inggris karena platform AI visual lebih stabil memahami detail visual dalam bahasa tersebut.</p>
+
+<ul>
+<li>Ganti placeholder seperti [PRODUCT], [BRAND], [SCENE]</li>
+<li>Iterasi kecil: ubah lighting, angle, ratio</li>
+<li>QC manual sebelum dipakai brand</li>
+<li>Gunakan AI untuk concept & draft, bukan final produksi tanpa review</li>
+</ul>
+
+<hr>
+
+<!-- ===================== 00 ===================== -->
+
+<div class="eyebrow">Chapter 00</div>
+<h2>Framework Prompt Profesional</h2>
+
+<p>Struktur dasar agar output konsisten dan tidak random.</p>
+
+<div class="card">
+<div class="card-header">
+<h3>Master Prompt — Image Generation</h3>
+<div class="badge">Universal</div>
+</div>
+<div class="card-body">
+<div class="code">
+Create a [OUTPUT TYPE] of [MAIN SUBJECT] for [BRAND/USE CASE].
+Scene: [SCENE].
+Composition: [ANGLE/FRAMING].
+Lighting: [LIGHTING].
+Style: [VISUAL STYLE].
+Details to preserve: [IMPORTANT DETAILS].
+Mood: [MOOD].
+Output: [ASPECT RATIO].
+Avoid: [NEGATIVE DETAILS].
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header">
+<h3>Master Prompt — Image to Video</h3>
+</div>
+<div class="card-body">
+<div class="code">
+Animate this exact image into a [DURATION]-second video.
+Preserve subject identity, shape, label, colors, lighting.
+Only add [MOTION].
+Camera movement: [CAMERA MOVE].
+Mood: [MOOD].
+Avoid morphing, redesign, extra objects.
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header">
+<h3>Master Prompt — Product Ad Video</h3>
+</div>
+<div class="card-body">
+<div class="code">
+Create a [DURATION]-second commercial for [PRODUCT].
+
+Shot 1: [OPENING]
+Shot 2: [INTERACTION]
+Shot 3: [FINAL PACKSHOT]
+
+Camera: [STYLE]
+Lighting: [LIGHTING]
+Mood: [BRAND MOOD]
+</div>
+</div>
+</div>
+
+<hr>
+
+<!-- ===================== 01 ===================== -->
+
+<div class="eyebrow">Chapter 01</div>
+<h2>Product Photography & E-commerce</h2>
+
+<div class="card">
+<div class="card-header">
+<h3>Minimal E-commerce Packshot</h3>
+<div class="badge">ChatGPT Image</div>
+<div class="badge">Firefly</div>
+</div>
+<div class="card-body">
+<div class="code">
+Create a clean professional e-commerce product photo of [PRODUCT],
+centered on warm white background,
+soft studio lighting,
+realistic shadow,
+accurate texture,
+premium catalog look,
+4:5 ratio,
+no text.
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header">
+<h3>Luxury Skincare Hero</h3>
+</div>
+<div class="card-body">
+<div class="code">
+Luxury skincare hero shot of [PRODUCT NAME]
+frosted glass bottle,
+subtle water droplets,
+soft beige stone,
+diffused morning light,
+editorial beauty campaign,
+4:5 ratio.
+</div>
+</div>
+</div>
+
+<hr>
+
+<!-- ===================== 02 ===================== -->
+
+<div class="eyebrow">Chapter 02</div>
+<h2>Fashion Model, Editorial & Beauty</h2>
+
+<div class="card">
+<div class="card-header">
+<h3>Editorial Fashion Portrait</h3>
+<div class="badge">Midjourney</div>
+</div>
+<div class="card-body">
+<div class="code">
+High-fashion editorial portrait of [MODEL]
+wearing [OUTFIT],
+textured neutral backdrop,
+cinematic magazine lighting,
+natural skin texture,
+85mm lens look,
+4:5 ratio.
+</div>
+</div>
+</div>
+
+<hr>
+
+<!-- ===================== 03 ===================== -->
+
+<div class="eyebrow">Chapter 03</div>
+<h2>Packaging & Mockup</h2>
+
+<div class="card">
+<div class="card-header">
+<h3>Premium Pouch Mockup</h3>
+</div>
+<div class="card-body">
+<div class="code">
+Realistic standing pouch packaging mockup for [PRODUCT],
+matte material,
+minimal premium label,
+subtle shadow,
+4:5 ratio,
+no random text.
+</div>
+</div>
+</div>
+
+<hr>
+
+<!-- ===================== 09 ===================== -->
+
+<div class="eyebrow">Chapter 09</div>
+<h2>AI Video Ads & Cinematic B-roll</h2>
+
+<div class="card">
+<div class="card-header">
+<h3>Cinematic Text-to-Video</h3>
+</div>
+<div class="card-body">
+<div class="code">
+8-second cinematic commercial for [PRODUCT].
+Camera starts close-up,
+slow pull back reveal.
+Natural motion.
+Premium lighting.
+24fps.
+16:9.
+</div>
+</div>
+</div>
+
+<hr>
+
+<!-- ===================== 13 ===================== -->
+
+<div class="eyebrow">Chapter 13</div>
+<h2>Negative Prompt & QC Checklist</h2>
+
+<div class="card">
+<div class="card-header">
+<h3>Negative Prompt Library</h3>
+</div>
+<div class="card-body">
+<div class="code">
+distorted anatomy,
+extra fingers,
+warped hands,
+misspelled text,
+plastic skin,
+AI generated look,
+oversaturated colors,
+cheap stock photo style,
+watermark,
+jpeg artifacts
+</div>
+</div>
+</div>
+
+<div class="tip">
+Checklist sebelum dipakai brand:
+• Produk tidak berubah
+• Teks tanpa typo
+• Wajah & tangan natural
+• Tidak morphing pada video
+</div>
+
+<hr>
+
+<div class="eyebrow">Chapter 15</div>
+<h2>Referensi Platform</h2>
+
+<ul>
+<li>OpenAI Image Docs</li>
+<li>Runway Gen-4.5 Docs</li>
+<li>Midjourney Docs</li>
+<li>Adobe Firefly Docs</li>
+<li>Canva AI Docs</li>
+<li>Ideogram Docs</li>
+<li>Krea Docs</li>
+<li>Google Veo Docs</li>
+<li>Kling Docs</li>
+<li>Luma Ray2 FAQ</li>
+<li>Pika Product Pages</li>
+</ul>
+
+<hr>
+
+<h2>Penutup</h2>
+
+<p>
+Prompt bagus bukan yang paling panjang, tapi yang paling jelas.
+Gunakan AI sebagai creative partner, bukan pengganti judgement.
+QC manual tetap wajib.
+</p>
+
+</div>
+</body>
+</html>
