@@ -1,311 +1,427 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AI Visual Prompt Playbook</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Visual Prompt Playbook — NexaPixel</title>
 <style>
-:root{
-  --bg:#0D0D0D;
-  --card:#1C1C1C;
-  --card-header:#242424;
-  --border:#2E2E2E;
-  --gold:#C9A84C;
-  --text:#F0EDE6;
-  --muted:#A89F8C;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
-*{box-sizing:border-box; scroll-behavior:smooth;}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:'DM Sans', sans-serif;
-  line-height:1.7;
-}
-
-/* ===== Tombol Kembali Premium ===== */
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 1px;
-  text-decoration: none;
-  color: var(--muted);
-  transition: .3s;
-}
-
-.back-link:hover {
-  color: var(--gold);
-}
-
-/* ===== Layout ===== */
-
-.layout{
-  display:flex;
-}
-
-.sidebar{
-  width:280px;
-  position:fixed;
-  height:100vh;
-  overflow-y:auto;
-  border-right:1px solid var(--border);
-  padding:40px 24px;
-  background:#0D0D0D;
-}
-
-.sidebar h3{
-  font-family:'Playfair Display', serif;
-  font-size:20px;
-  margin: 24px 0 20px 0; /* Memberi ruang di bawah tombol back */
-}
-
-.sidebar a{
-  display:block;
-  font-family:'JetBrains Mono', monospace;
-  font-size:12px;
-  letter-spacing:1px;
-  text-decoration:none;
-  color:var(--muted);
-  margin-bottom:14px;
-  transition:.3s;
-}
-
-.sidebar a:hover{
-  color:var(--gold);
-}
-
-.content{
-  margin-left:280px;
-  max-width:800px;
-  padding:100px 40px;
-}
-
-/* ===== Typography ===== */
-
-h1,h2,h3{
-  font-family:'Playfair Display', serif;
-  font-weight:700;
-  margin:0 0 24px 0;
-}
-
-h1{font-size:52px; line-height:1.1;}
-h2{font-size:34px; margin-top:100px;}
-h3{font-size:22px;}
-
-p{color:var(--muted);}
-
-.eyebrow{
-  font-family:'JetBrains Mono', monospace;
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:16px;
-}
-
-hr{
-  border:none;
-  border-top:1px solid var(--border);
-  margin:80px 0;
-}
-
-/* ===== Cards ===== */
-
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:4px;
-  margin:36px 0;
-  overflow:hidden;
-}
-
-.card-header{
-  background:var(--card-header);
-  padding:16px 20px;
-  border-bottom:1px solid var(--border);
-}
-
-.card-body{
-  padding:24px;
-}
-
-.code{
-  font-family:'JetBrains Mono', monospace;
-  font-size:13px;
-  background:#141414;
-  border:1px solid var(--border);
-  padding:18px;
-  border-radius:4px;
-  white-space:pre-wrap;
-}
-
-/* ===== Tip Box ===== */
-
-.tip{
-  border-left:3px solid var(--gold);
-  background:rgba(201,168,76,.05);
-  padding:22px;
-  margin:40px 0;
-}
-
-/* ===== Responsive ===== */
-
-@media(max-width:1024px){
-  .sidebar{
-    display:none;
+  :root {
+    --accent-gold: #C9A84C;
+    --gold-light: #E8CC7A;
+    --dark: #0D0D0D;
+    --dark-2: #141414;
+    --dark-3: #1C1C1C;
+    --dark-4: #242424;
+    --dark-5: #2E2E2E;
+    --text-primary: #F0EDE6;
+    --text-secondary: #A89F8C;
+    --text-muted: #5C5850;
+    
+    /* Font Variables */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'DM Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
   }
-  .content{
-    margin-left:0;
-    padding:80px 24px;
+
+  * { margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.75;
+    padding-top: 40px;
   }
-}
+
+  .container-nav {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-bottom: 24px;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: var(--accent-gold);
+  }
+
+  /* ===== COVER ===== */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    background: var(--dark);
+    border-bottom: 1px solid var(--dark-5);
+    page-break-after: always;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(201,168,76,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    border: 1px solid rgba(201,168,76,0.35);
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 48px;
+  }
+
+  .cover-title {
+    font-family: var(--font-serif);
+    font-size: clamp(40px, 8vw, 88px);
+    font-weight: 900;
+    line-height: 1.0;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .cover-title span {
+    color: var(--accent-gold);
+    font-style: italic;
+  }
+
+  .cover-subtitle {
+    font-family: var(--font-serif);
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+  }
+
+  .cover-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 60px;
+  }
+
+  .cover-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--accent-gold);
+    margin: 0 auto 40px;
+  }
+
+  /* ===== TOC ===== */
+  .toc-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    page-break-after: always;
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 48px;
+    line-height: 1.1;
+  }
+
+  .toc-item {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--dark-5);
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s;
+  }
+
+  .toc-item:hover { color: var(--accent-gold); }
+
+  .toc-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent-gold);
+    min-width: 36px;
+  }
+
+  .toc-title { flex: 1; font-size: 15px; font-weight: 500; }
+  .toc-page-num { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); }
+
+  /* ===== CHAPTERS ===== */
+  .chapter {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  .chapter-header {
+    margin-bottom: 56px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--dark-5);
+  }
+
+  .chapter-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .chapter-title {
+    font-family: var(--font-serif);
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+
+  .chapter-intro {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  /* Prompt Cards */
+  .prompt-section { margin-bottom: 48px; }
+  .prompt-section-title { font-family: var(--font-serif); font-size: 22px; font-weight: 700; margin-bottom: 20px; color: var(--text-primary); }
+
+  .prompt-card { background: var(--dark-3); border: 1px solid var(--dark-5); border-radius: 4px; margin-bottom: 16px; overflow: hidden; }
+  .prompt-card-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--dark-5); background: var(--dark-4); }
+  .prompt-label { font-family: var(--font-mono); font-size: 11px; color: var(--accent-gold); letter-spacing: 0.1em; }
+
+  .prompt-body {
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: #D4C9A8;
+    line-height: 1.75;
+    white-space: pre-wrap;
+    word-break: break-word;
+    background: #141414;
+  }
+
+  /* Copy button */
+  .copy-btn {
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--accent-gold);
+    font-size: 11px;
+    font-family: var(--font-mono);
+    padding: 4px 10px;
+    border-radius: 2px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+  .copy-btn:hover { background: rgba(201,168,76,0.2); }
+
+  /* Footer */
+  .footer { border-top: 1px solid var(--dark-5); padding: 40px; text-align: center; color: var(--text-muted); font-size: 13px; max-width: 800px; margin: 40px auto 0; }
+  
+  @media (max-width: 600px) {
+    .chapter, .toc-page { padding: 48px 20px; }
+    .cover { padding: 48px 24px; }
+    .container-nav { padding: 0 20px; }
+  }
 </style>
 </head>
 <body>
 
-<div class="layout">
-
-<div class="sidebar">
-  <a href="index.html" class="back-link">&#8592; MENU AWAL</a>
-  
-  <h3>Contents</h3>
-  <a href="#intro">00 Intro</a>
-  <a href="#framework">00 Framework</a>
-  <a href="#product">01 Product</a>
-  <a href="#fashion">02 Fashion</a>
-  <a href="#packaging">03 Packaging</a>
-  <a href="#poster">04 Poster</a>
-  <a href="#brand">05 Brand</a>
-  <a href="#food">06 Food</a>
-  <a href="#interior">07 Interior</a>
-  <a href="#3d">08 3D & Icon</a>
-  <a href="#video">09 AI Video</a>
-  <a href="#typography">10 Typography</a>
-  <a href="#uiux">11 UI/UX</a>
-  <a href="#marketplace">12 Marketplace</a>
-  <a href="#negative">13 Negative & QC</a>
-  <a href="#quick">14 Quick Prompt</a>
-  <a href="#reference">15 Reference</a>
-  <a href="#penutup">Penutup</a>
+<div class="container-nav">
+  <a href="index.html" class="back-link">&#8592; KEMBALI KE MENU AWAL</a>
 </div>
 
-<div class="content">
-
-<div id="intro">
-<div class="eyebrow">AI Visual Playbook</div>
-<h1><em>AI VISUAL</em><br>PROMPT PLAYBOOK</h1>
-<p>Prompt profesional untuk graphic design, product content, model campaign, branding, dan AI video.</p>
+<div class="cover" id="cover">
+  <div class="cover-badge">Visual Asset · Edisi 2025</div>
+  <h1 class="cover-title">AI Visual<br><span>Prompt Playbook</span></h1>
+  <div class="cover-divider"></div>
+  <p class="cover-desc">Prompt profesional untuk graphic design, product content, model campaign, branding, dan AI video.</p>
 </div>
 
-<hr>
+<div class="toc-page" id="toc">
+  <p class="section-eyebrow">Daftar Isi</p>
+  <h2 class="section-title">Konten<br>Playbook</h2>
 
-<div id="framework">
-<div class="eyebrow">Chapter 00</div>
-<h2>Framework Prompt Profesional</h2>
+  <a href="#framework" class="toc-item">
+    <span class="toc-num">00</span>
+    <div style="flex:1"><div class="toc-title">Framework Prompt Profesional</div></div>
+    <span class="toc-page-num">→</span>
+  </a>
+  <a href="#product" class="toc-item">
+    <span class="toc-num">01</span>
+    <div style="flex:1"><div class="toc-title">Product Photography</div></div>
+    <span class="toc-page-num">→</span>
+  </a>
+  <a href="#fashion" class="toc-item">
+    <span class="toc-num">02</span>
+    <div style="flex:1"><div class="toc-title">Fashion Editorial</div></div>
+    <span class="toc-page-num">→</span>
+  </a>
+  <a href="#video" class="toc-item">
+    <span class="toc-num">09</span>
+    <div style="flex:1"><div class="toc-title">AI Video Ads</div></div>
+    <span class="toc-page-num">→</span>
+  </a>
+  <a href="#negative" class="toc-item">
+    <span class="toc-num">13</span>
+    <div style="flex:1"><div class="toc-title">Negative Prompt & QC</div></div>
+    <span class="toc-page-num">→</span>
+  </a>
+</div>
 
-<div class="card">
-<div class="card-header"><h3>Master Prompt — Image Generation</h3></div>
-<div class="card-body">
-<div class="code">
-Create a [OUTPUT TYPE] of [MAIN SUBJECT] for [BRAND].
+<div class="chapter" id="framework">
+  <div class="chapter-header">
+    <p class="chapter-num">Chapter 00</p>
+    <h2 class="chapter-title">Framework Prompt Profesional</h2>
+  </div>
+
+  <div class="prompt-section">
+    <div class="prompt-card">
+      <div class="prompt-card-header">
+        <span class="prompt-label">MASTER PROMPT — IMAGE GENERATION</span>
+        <button class="copy-btn">COPY</button>
+      </div>
+      <div class="prompt-body">Create a [OUTPUT TYPE] of [MAIN SUBJECT] for [BRAND].
 Scene: [SCENE].
 Composition: [ANGLE].
 Lighting: [LIGHTING].
 Style: [STYLE].
 Output: [RATIO].
-Avoid: [NEGATIVE].
-</div>
-</div>
-</div>
+Avoid: [NEGATIVE].</div>
+    </div>
+  </div>
 </div>
 
-<hr>
+<div class="chapter" id="product">
+  <div class="chapter-header">
+    <p class="chapter-num">Chapter 01</p>
+    <h2 class="chapter-title">Product Photography</h2>
+  </div>
 
-<div id="product">
-<div class="eyebrow">Chapter 01</div>
-<h2>Product Photography</h2>
-
-<div class="card">
-<div class="card-header"><h3>Minimal Packshot</h3></div>
-<div class="card-body">
-<div class="code">
-Clean professional e-commerce photo of [PRODUCT],
+  <div class="prompt-section">
+    <div class="prompt-card">
+      <div class="prompt-card-header">
+        <span class="prompt-label">MINIMAL PACKSHOT</span>
+        <button class="copy-btn">COPY</button>
+      </div>
+      <div class="prompt-body">Clean professional e-commerce photo of [PRODUCT],
 warm white background,
 soft shadow,
 premium catalog look,
-4:5 ratio.
-</div>
-</div>
-</div>
-</div>
-
-<hr>
-
-<div id="fashion">
-<div class="eyebrow">Chapter 02</div>
-<h2>Fashion Editorial</h2>
-<p>High-fashion editorial portrait, natural skin texture, cinematic magazine lighting.</p>
+4:5 ratio.</div>
+    </div>
+  </div>
 </div>
 
-<hr>
+<div class="chapter" id="fashion">
+  <div class="chapter-header">
+    <p class="chapter-num">Chapter 02</p>
+    <h2 class="chapter-title">Fashion Editorial</h2>
+    <p class="chapter-intro">High-fashion editorial portrait, natural skin texture, cinematic magazine lighting.</p>
+  </div>
+</div>
 
-<div id="video">
-<div class="eyebrow">Chapter 09</div>
-<h2>AI Video Ads</h2>
+<div class="chapter" id="video">
+  <div class="chapter-header">
+    <p class="chapter-num">Chapter 09</p>
+    <h2 class="chapter-title">AI Video Ads</h2>
+  </div>
 
-<div class="card">
-<div class="card-header"><h3>Image-to-Video</h3></div>
-<div class="card-body">
-<div class="code">
-Animate this exact image into 6-second ad.
+  <div class="prompt-section">
+    <div class="prompt-card">
+      <div class="prompt-card-header">
+        <span class="prompt-label">IMAGE-TO-VIDEO</span>
+        <button class="copy-btn">COPY</button>
+      </div>
+      <div class="prompt-body">Animate this exact image into 6-second ad.
 Subtle camera push-in.
 No morphing.
-No redesign.
-</div>
-</div>
-</div>
-</div>
-
-<hr>
-
-<div id="negative">
-<div class="eyebrow">Chapter 13</div>
-<h2>Negative Prompt & QC</h2>
-
-<div class="card">
-<div class="card-body">
-<div class="code">
-distorted anatomy,
-extra fingers,
-misspelled text,
-plastic skin,
-AI look,
-watermark
-</div>
-</div>
-</div>
+No redesign.</div>
+    </div>
+  </div>
 </div>
 
-<hr>
+<div class="chapter" id="negative">
+  <div class="chapter-header">
+    <p class="chapter-num">Chapter 13</p>
+    <h2 class="chapter-title">Negative Prompt & QC</h2>
+  </div>
 
-<div id="penutup">
-<h2>Penutup</h2>
-<p>Prompt bagus bukan yang paling panjang, tapi yang paling jelas.</p>
+  <div class="prompt-section">
+    <div class="prompt-card">
+      <div class="prompt-card-header">
+        <span class="prompt-label">QC NEGATIVE PROMPT</span>
+        <button class="copy-btn">COPY</button>
+      </div>
+      <div class="prompt-body">distorted anatomy, extra fingers, misspelled text, plastic skin, AI look, watermark</div>
+    </div>
+  </div>
+</div>
 
-<div style="margin-top: 60px;">
-  <a href="index.html" class="back-link">&#8592; KEMBALI KE MENU AWAL</a>
-</div>
+<div class="chapter" id="penutup">
+  <div class="chapter-header" style="border:none; margin-bottom: 24px; padding-bottom: 0;">
+    <h2 class="chapter-title" style="font-size: 32px;">Penutup</h2>
+    <p class="chapter-intro">Prompt bagus bukan yang paling panjang, tapi yang paling jelas. Gunakan AI sebagai creative partner, bukan pengganti judgement. QC manual tetap wajib.</p>
+  </div>
+  
+  <div style="margin-top: 40px;">
+    <a href="index.html" class="back-link">&#8592; KEMBALI KE MENU AWAL</a>
+  </div>
 </div>
 
-</div>
+<div class="footer">
+  <p>&copy; 2026 NexaPixel. Crafted with absolute restraint.</p>
 </div>
 
+<script>
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const card = btn.closest('.prompt-card');
+    const text = card.querySelector('.prompt-body').textContent.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'COPIED!';
+      setTimeout(() => btn.textContent = orig, 1500);
+    });
+  });
+});
+</script>
 </body>
 </html>
