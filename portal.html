@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Portal — NexaPixel</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #0D0D0D;
+            --bg-card: #1C1C1C;
+            --border-card: #2E2E2E;
+            --accent-gold: #C9A84C;
+            --text-main: #F0EDE6;
+            --text-secondary: #A89F8C;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'DM Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 24px;
+        }
+
+        .portal-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 4px;
+            padding: 48px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-gold);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        input {
+            padding: 16px;
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-card);
+            color: var(--accent-gold);
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            border-radius: 4px;
+            outline: none;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 0.1em;
+        }
+
+        input:focus { border-color: var(--accent-gold); }
+
+        button {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--bg-main);
+            background-color: var(--accent-gold);
+            padding: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: opacity 0.2s ease;
+        }
+
+        button:hover { opacity: 0.9; }
+
+        #errorMessage {
+            color: #ff5252;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            margin-top: 16px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portal-box">
+        <span class="eyebrow">[ secure portal ]</span>
+        <h1>Akses Lisensi</h1>
+        <p>Masukkan token otentikasi unik yang Anda terima setelah transaksi dari Lynk.id untuk membuka brankas aset digital Anda.</p>
+        
+        <div class="input-group">
+            <input type="text" id="tokenInput" placeholder="KODE TOKEN...">
+            <button onclick="verifyToken()">Otentikasi</button>
+        </div>
+        <p id="errorMessage">[ERROR] Token tidak valid atau tidak dikenali.</p>
+    </div>
+
+    <script>
+        function verifyToken() {
+            const token = document.getElementById('tokenInput').value.trim().toUpperCase();
+            const errorMsg = document.getElementById('errorMessage');
+            
+            const accessMap = {
+                "MASTERY2026": "aipromptmastery.html",
+                "PLAYBOOK2026": "aivisualpromptplaybook.html"
+            };
+
+            if (accessMap[token]) {
+                errorMsg.style.display = "none";
+                window.location.href = accessMap[token];
+            } else {
+                errorMsg.style.display = "block";
+            }
+        }
+
+        document.getElementById("tokenInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                verifyToken();
+            }
+        });
+    </script>
+</body>
+</html>
