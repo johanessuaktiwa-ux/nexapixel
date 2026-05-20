@@ -3,63 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexaPixel — Premium Digital Assets</title>
+    <title>Client Portal — NexaPixel</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
     <style>
-        /* Design Tokens & Variables */
         :root {
             --bg-main: #0D0D0D;
             --bg-card: #1C1C1C;
-            --bg-card-header: #242424;
             --border-card: #2E2E2E;
             --accent-gold: #C9A84C;
             --text-main: #F0EDE6;
             --text-secondary: #A89F8C;
-            
             --font-serif: 'Playfair Display', serif;
             --font-sans: 'DM Sans', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
         }
 
-        /* Reset & Base Styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             background-color: var(--bg-main);
             color: var(--text-main);
             font-family: var(--font-sans);
-            line-height: 1.6;
-            padding: 100px 24px;
-            -webkit-font-smoothing: antialiased;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 24px;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+        .portal-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 4px;
+            padding: 48px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
         }
 
-        /* Typography & Editorial Elements */
         .eyebrow {
             font-family: var(--font-mono);
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .chapter-num {
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
             color: var(--accent-gold);
             margin-bottom: 16px;
             display: block;
@@ -67,191 +57,105 @@
 
         h1 {
             font-family: var(--font-serif);
-            font-size: 3rem;
-            font-weight: 700;
-            font-style: italic;
-            line-height: 1.1;
-            margin-bottom: 16px;
-        }
-
-        h2 {
-            font-family: var(--font-serif);
             font-size: 2rem;
-            font-weight: 600;
             font-style: italic;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
 
         p {
             color: var(--text-secondary);
-            font-size: 1.05rem;
-            margin-bottom: 24px;
-        }
-
-        .divider {
-            border: none;
-            border-top: 1px solid var(--border-card);
-            margin: 64px 0;
-        }
-
-        /* Components: Cards */
-        .card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 32px;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .card:hover {
-            border-color: var(--accent-gold);
-        }
-
-        .card-header {
-            background-color: var(--bg-card-header);
-            padding: 16px 24px;
-            border-bottom: 1px solid var(--border-card);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .card-title {
-            font-family: var(--font-serif);
-            font-size: 1.25rem;
-            font-style: italic;
-            font-weight: 600;
-        }
-
-        .card-body {
-            padding: 24px;
-        }
-
-        /* Components: Badges */
-        .badge {
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            padding: 4px 10px;
-            border-radius: 20px;
-            border: 1px solid rgba(201, 168, 76, 0.3);
-            background-color: rgba(201, 168, 76, 0.07);
-            color: var(--accent-gold);
-            letter-spacing: 0.05em;
-        }
-
-        /* Components: Tip Box */
-        .tip-box {
-            border-left: 3px solid var(--accent-gold);
-            background-color: rgba(201, 168, 76, 0.05);
-            padding: 20px 24px;
-            margin: 40px 0;
-            border-radius: 0 4px 4px 0;
-        }
-
-        .tip-box p {
-            margin-bottom: 0;
             font-size: 0.95rem;
-            color: var(--text-main);
+            margin-bottom: 32px;
+            line-height: 1.6;
         }
 
-        /* Interactive Elements / Buttons */
-        .cta-btn {
-            display: inline-block;
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        input {
+            padding: 16px;
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-card);
+            color: var(--accent-gold);
             font-family: var(--font-mono);
-            font-size: 0.8rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            outline: none;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 0.1em;
+        }
+
+        input:focus { border-color: var(--accent-gold); }
+
+        button {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--bg-main);
             background-color: var(--accent-gold);
-            padding: 12px 24px;
+            padding: 16px;
+            border: none;
             border-radius: 4px;
-            text-decoration: none;
+            cursor: pointer;
             font-weight: 600;
             transition: opacity 0.2s ease;
         }
 
-        .cta-btn:hover {
-            opacity: 0.9;
-        }
+        button:hover { opacity: 0.9; }
 
-        /* Footer styling */
-        footer {
-            margin-top: 120px;
+        #errorMessage {
+            color: #ff5252;
             font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            text-align: center;
-            letter-spacing: 0.05em;
-        }
-
-        /* Responsive adjustment */
-        @media (max-width: 600px) {
-            body { padding: 60px 16px; }
-            h1 { font-size: 2.25rem; }
-            h2 { font-size: 1.6rem; }
+            font-size: 0.8rem;
+            margin-top: 16px;
+            display: none;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="portal-box">
+        <span class="eyebrow">[ secure portal ]</span>
+        <h1>Akses Lisensi</h1>
+        <p>Masukkan token otentikasi unik yang Anda terima setelah transaksi dari Lynk.id untuk membuka brankas aset digital Anda.</p>
         
-        <header>
-            <span class="eyebrow">A Digital Atelier</span>
-            <h1>NexaPixel</h1>
-            <p style="color: var(--accent-gold); font-size: 1.15rem; font-family: var(--font-serif); font-style: italic;">
-                Semua keperluan digital profesional untuk industri kreatif.
-            </p>
-        </header>
-
-        <hr class="divider">
-
-        <section>
-            <span class="chapter-num">[ chapter 01 // curated assets ]</span>
-            <h2>Arsitektur Sistem & Dokumen</h2>
-            <p>Koleksi produk digital yang dirancang presisi untuk mengoptimalkan efisiensi kerja, manajemen proyek, dan skalabilitas bisnis kreatif Anda.</p>
-
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-title">AI Prompt Mastery Kit</span>
-                    <span class="badge">Aset Kreatif</span>
-                </div>
-                <div class="card-body">
-                    <p>Sistem optimasi instruksi AI tingkat lanjut untuk efisiensi workflow produksi konten komersial.</p>
-                    <a href="https://lynk.id/" target="_blank" class="cta-btn">Acquire License</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-title">AI Visual Prompt Playbook</span>
-                    <span class="badge">Aset Kreatif</span>
-                </div>
-                <div class="card-body">
-                    <p>Panduan terstruktur pembuatan prompt gambar resolusi tinggi dengan estetika editorial premium.</p>
-                    <a href="https://lynk.id/" target="_blank" class="cta-btn">Acquire License</a>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <hr class="divider">
-            <span class="chapter-num">[ chapter 02 // philosophy ]</span>
-            <h2>Presisi dalam Setiap Piksel</h2>
-            <p>Kami percaya bahwa produk digital terbaik tidak sekadar menyelesaikan masalah, melainkan juga memberikan pengalaman visual dan fungsional yang anggun.</p>
-            
-            <div class="tip-box">
-                <p><strong>Catatan Lisensi:</strong> Setiap aset digital yang diperoleh dari NexaPixel dilengkapi dengan hak komersial penuh, dioptimalkan untuk performa tinggi, dan diperbarui secara berkala tanpa biaya tambahan.</p>
-            </div>
-        </section>
-
-        <footer>
-            &copy; 2026 NexaPixel. Crafted with absolute restraint.
-        </footer>
-
+        <div class="input-group">
+            <input type="text" id="tokenInput" placeholder="KODE TOKEN...">
+            <button onclick="verifyToken()">Otentikasi</button>
+        </div>
+        <p id="errorMessage">[ERROR] Token tidak valid atau tidak dikenali.</p>
     </div>
 
+    <script>
+        function verifyToken() {
+            const token = document.getElementById('tokenInput').value.trim().toUpperCase();
+            const errorMsg = document.getElementById('errorMessage');
+            
+            // KUNCI TOKEN DAN NAMA FILE PRODUK ANDA
+            const accessMap = {
+                "MASTERY2026": "aipromptmastery.html",
+                "PLAYBOOK2026": "aivisualpromptplaybook.html"
+            };
+
+            if (accessMap[token]) {
+                errorMsg.style.display = "none";
+                window.location.href = accessMap[token];
+            } else {
+                errorMsg.style.display = "block";
+            }
+        }
+
+        document.getElementById("tokenInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                verifyToken();
+            }
+        });
+    </script>
 </body>
 </html>
