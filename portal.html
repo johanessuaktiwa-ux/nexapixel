@@ -115,6 +115,29 @@
             margin-top: 16px;
             display: none;
         }
+
+        /* Desain Tombol Bantuan DM Instagram */
+        .help-link {
+            display: block;
+            margin-top: 32px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-top: 1px solid var(--border-card);
+            padding-top: 24px;
+            transition: color 0.2s;
+        }
+
+        .help-link:hover { color: var(--accent-gold); }
+        
+        .help-note {
+            display: block;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
@@ -128,7 +151,13 @@
             <input type="text" id="tokenInput" placeholder="KODE TOKEN...">
             <button onclick="verifyToken()">Otentikasi</button>
         </div>
+        
         <p id="errorMessage">[ERROR] Token tidak valid atau tidak dikenali.</p>
+
+        <a href="https://ig.me/m/restin.elia" target="_blank" class="help-link">
+            Bantuan Akses? Hubungi Admin via DM Instagram
+            <span class="help-note">Gunakan template: "Hi kak! aku butuh bantuan nih, gak bisa masuk karna..."</span>
+        </a>
     </div>
 
     <script>
